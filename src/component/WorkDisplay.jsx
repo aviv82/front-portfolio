@@ -34,6 +34,7 @@ export const WorkDisplay = ({ works }) => {
     workToDisplay[0].attributes.media.data.attributes.formats.large.url
   );
 */
+  const videoEmbed = `https://youtube.com/embed/${workToDisplay[0].attributes.link}`;
 
   return (
     <div className="display-wrap">
@@ -41,12 +42,27 @@ export const WorkDisplay = ({ works }) => {
       <h3 className="display-genre">
         Media: {workToDisplay[0].attributes.type}
       </h3>
+      {workToDisplay[0].attributes.type === "Video" ? (
+        <div className="display-video">
+          <iframe
+            width="780"
+            height="420"
+            className="video-iframe"
+            src={videoEmbed}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      ) : (
+        <img
+          className="display-image"
+          src={workToDisplay[0].attributes.link}
+          alt={workToDisplay[0].attributes.title}
+        ></img>
+      )}
 
-      <img
-        className="display-image"
-        src={workToDisplay[0].attributes.link}
-        alt={workToDisplay[0].attributes.title}
-      ></img>
       <div className="display-selection">
         <svg
           onClick={handlePrevious}
