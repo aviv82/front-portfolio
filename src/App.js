@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { get } from "./api/get";
 
 function App() {
-  console.log("reload");
   const [works, setWorks] = useState([]);
 
   const worksInit = async () => {
@@ -14,8 +13,11 @@ function App() {
 
   useEffect(() => {
     worksInit();
-    console.log("works", works);
   }, []);
+
+  if (works.length !== 0) {
+    console.log("works", works.data);
+  }
 
   return (
     <div className="App">
