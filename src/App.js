@@ -23,8 +23,8 @@ function App() {
   */
 
   return (
-    <div className="App">
-      <h1 className="test">aviv</h1>
+    <div className="app">
+      <h1 className="head">Aviv Dror</h1>
       {works.length === 0 ? (
         <h2 className="loader">Loading...</h2>
       ) : (
