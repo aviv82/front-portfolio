@@ -19,11 +19,42 @@
 }
 
 .display-image {
+  cursor: pointer;
+  padding-bottom: 20px;
+  max-width: 90%;
+  height: 480px;
+}
+
+.display-image:hover {
+  max-width: 100%;
+  height: 100%;
+}
+
+.display-web {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-web-image {
   /* width: 80%;
   height: 400px; */
   padding-bottom: 20px;
   max-width: 90%;
-  height: 420px;
+  height: 320px;
+}
+
+.display-link {
+  padding-bottom: 10px;
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  color: rgb(23, 37, 63);
+}
+
+.display-link:hover {
+  color: rgb(82, 88, 101);
 }
 
 .display-button {

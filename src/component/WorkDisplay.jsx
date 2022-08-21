@@ -55,6 +55,23 @@ export const WorkDisplay = ({ works }) => {
             allowFullScreen
           ></iframe>
         </div>
+      ) : workToDisplay[0].attributes.type === "UX/UI" ? (
+        <div className="display-web">
+          <img
+            className="display-web-image"
+            src={workToDisplay[0].attributes.link}
+            alt={workToDisplay[0].attributes.title}
+          ></img>
+          <a className="display-link" href={workToDisplay[0].attributes.design}>
+            Figma
+          </a>
+          <a
+            className="display-link"
+            href={workToDisplay[0].attributes.sublink}
+          >
+            Visit Page
+          </a>
+        </div>
       ) : (
         <img
           className="display-image"
