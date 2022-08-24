@@ -3,6 +3,7 @@ import "./WorkDisplay.css";
 
 export const WorkDisplay = ({ works }) => {
   const [id, setId] = useState(2);
+  const [fullView, setFullView] = useState(false);
 
   const handleNext = () => {
     if (id === works.length + 1) {
@@ -10,6 +11,7 @@ export const WorkDisplay = ({ works }) => {
     } else {
       setId(id + 1);
     }
+    setFullView(false);
     // console.log("boom");
   };
 
@@ -19,6 +21,7 @@ export const WorkDisplay = ({ works }) => {
     } else {
       setId(id - 1);
     }
+    setFullView(false);
     // console.log("boom");
   };
 
@@ -42,44 +45,49 @@ export const WorkDisplay = ({ works }) => {
       <h3 className="display-genre">
         Media: {workToDisplay[0].attributes.type}
       </h3>
-      {workToDisplay[0].attributes.type === "Video" ? (
-        <div className="display-video">
-          <iframe
-            width="780"
-            height="420"
-            className="video-iframe"
-            src={videoEmbed}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      ) : workToDisplay[0].attributes.type === "UX/UI" ? (
-        <div className="display-web">
+      <div className="display-big">
+        {workToDisplay[0].attributes.type === "Video" ? (
+          <div className="display-video">
+            <iframe
+              width="780"
+              height="420"
+              className="video-iframe"
+              src={videoEmbed}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : workToDisplay[0].attributes.type === "UX/UI" ? (
+          <div className="display-web">
+            <img
+              className="display-web-image"
+              src={workToDisplay[0].attributes.link}
+              alt={workToDisplay[0].attributes.title}
+            ></img>
+            <a
+              className="display-link"
+              href={workToDisplay[0].attributes.design}
+            >
+              Figma
+            </a>
+            <a
+              className="display-link"
+              href={workToDisplay[0].attributes.sublink}
+            >
+              Visit Page
+            </a>
+          </div>
+        ) : (
           <img
-            className="display-web-image"
+            onClick={() => setFullView(!fullView)}
+            className={`display-image${fullView ? "-full" : ""}`}
             src={workToDisplay[0].attributes.link}
             alt={workToDisplay[0].attributes.title}
           ></img>
-          <a className="display-link" href={workToDisplay[0].attributes.design}>
-            Figma
-          </a>
-          <a
-            className="display-link"
-            href={workToDisplay[0].attributes.sublink}
-          >
-            Visit Page
-          </a>
-        </div>
-      ) : (
-        <img
-          className="display-image"
-          src={workToDisplay[0].attributes.link}
-          alt={workToDisplay[0].attributes.title}
-        ></img>
-      )}
-
+        )}
+      </div>
       <div className="display-selection">
         <svg
           onClick={handlePrevious}

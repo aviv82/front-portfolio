@@ -1,17 +1,22 @@
-body {
-  background-color: rgb(176, 187, 222);
-  /* background-image: linear-gradient(rgb(188, 183, 245), rgb(50, 50, 63)); */
-}
-
 .app {
   height: 100%;
   padding: 10px;
+  animation: fade-in-load 1400ms, ease-in;
 }
 
 .head {
   text-align: center;
   font-size: 240%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: var(--head-font);
   font-weight: 300;
   color: aliceblue;
+}
+
+@keyframes fade-in-load {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
