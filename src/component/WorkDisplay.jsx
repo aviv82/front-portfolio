@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import "./WorkDisplay.css";
 
 export const WorkDisplay = ({ works }) => {
-  const [id, setId] = useState(2);
+  const [id, setId] = useState(1);
   const [fullView, setFullView] = useState(false);
-
+  // console.log("id on load:", id);
   const handleNext = () => {
-    if (id === works.length + 1) {
-      setId(2);
+    if (id === works.length) {
+      // console.log("id = 1:", id);
+      setId(1);
     } else {
+      // console.log("id = id + 1:", id);
       setId(id + 1);
     }
     setFullView(false);
@@ -16,9 +18,11 @@ export const WorkDisplay = ({ works }) => {
   };
 
   const handlePrevious = () => {
-    if (id === 2) {
-      setId(works.length + 1);
+    if (id === 1) {
+      // console.log("id = length + 1:", id);
+      setId(works.length);
     } else {
+      // console.log("id = id - 1:", id);
       setId(id - 1);
     }
     setFullView(false);
@@ -37,6 +41,7 @@ export const WorkDisplay = ({ works }) => {
     workToDisplay[0].attributes.media.data.attributes.formats.large.url
   );
 */
+
   const videoEmbed = `https://youtube.com/embed/${workToDisplay[0].attributes.link}`;
 
   return (

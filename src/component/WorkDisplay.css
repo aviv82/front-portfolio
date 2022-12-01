@@ -75,11 +75,11 @@
 }
 
 .display-button path {
-  fill: whitesmoke;
+  fill: black;
 }
 
 .display-button:hover path {
-  fill: black;
+  fill: whitesmoke;
 }
 
 .display-button:active path {
